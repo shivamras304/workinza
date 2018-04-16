@@ -1,5 +1,12 @@
 {
   "SERVER" : {
     "PORT": 5555
+  },
+  "DB" : {
+    "DATABASE": "workinzadb",
+    "USERNAME": "srastogi",
+    "PASSWORD": "titpw",
+    "HOST": "localhost",
+    "DIALECT": "mysql"
   }
 }
