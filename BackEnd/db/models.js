@@ -11,7 +11,7 @@ const db = new Sequelize(
   }
 )
 
-const User = db.define('users', {
+const User = db.define("users", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -30,10 +30,18 @@ const User = db.define('users', {
   password: {
     type: DataTypes.STRING,
     allowNull: false
+  },
+  createdAt: {
+    type: DataTypes.DATE,
+    defaultValue: Sequelize.fn("now")
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    defaultValue: Sequelize.fn("now")
   }
 });
 
-const Project = db.define('projects', {
+const Project = db.define("projects", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -46,18 +54,42 @@ const Project = db.define('projects', {
   description: {
     type: DataTypes.TEXT,
     allowNull: true
+  },
+  createdAt: {
+    type: DataTypes.DATE,
+    defaultValue: Sequelize.fn("now")
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    defaultValue: Sequelize.fn("now")
   }
 })
 
+const UserProject = db.define("user_project", {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
+  createdAt: {
+    type: DataTypes.DATE,
+    defaultValue: Sequelize.fn("now")
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    defaultValue: Sequelize.fn("now")
+  }
+}, {freezeTableName: true})
+
 Project.belongsToMany(User, {through: "user_project"});
 //TODO understand if the below statement is needed
-User.belongsToMany(Project, {through: "user_project"});
+// User.belongsToMany(Project, {through: "user_project"});
 
 db.sync({force: true})
   .then(() => console.info("Database Configured"))
   .catch((err) => console.error(err));
 
 module.exports.models = {
-  User, Project
+  User, Project, UserProject
 }
 
