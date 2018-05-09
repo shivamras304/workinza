@@ -1,8 +1,8 @@
 const express = require("express");
-const config = require("./config");
+const config = require("./config.json");
 const bodyParser = require("body-parser");
-const routes = require("./api/routes")
-const models = require("./db/models")
+const routes = require("./api/routes.js");
+const models = require("./db/models.js");
 
 const app = express();
 

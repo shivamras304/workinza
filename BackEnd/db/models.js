@@ -86,7 +86,10 @@ Project.belongsToMany(User, {through: "user_project"});
 // User.belongsToMany(Project, {through: "user_project"});
 
 db.sync({force: true})
-  .then(() => console.info("Database Configured"))
+  .then(() => {
+    require("./seedData");
+    console.info("Database Configured");
+  })
   .catch((err) => console.error(err));
 
 module.exports.models = {
