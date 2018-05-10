@@ -8,5 +8,6 @@
     "PASSWORD": "titpw",
     "HOST": "localhost",
     "DIALECT": "mysql"
-  }
+  },
+  "SECRET": "Some secret which will be passed as env variable in production app. It is a bad practice to store secret this way!"
 }
