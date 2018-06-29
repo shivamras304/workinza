@@ -8,7 +8,7 @@ mysql -u root -p
 
 CREATE DATABASE workinzadb;
 USE workinzadb;
-CREATE USER srastogi IDENTIFIED BY 'titpw';
+CREATE USER srastogi IDENTIFIED BY "titpw4sr";
 GRANT ALL PRIVILEGES ON * TO srastogi@'%';
 EXIT
 

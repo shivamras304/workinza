@@ -5,7 +5,7 @@
   "DB" : {
     "DATABASE": "workinzadb",
     "USERNAME": "srastogi",
-    "PASSWORD": "titpw",
+    "PASSWORD": "titpw4sr",
     "HOST": "localhost",
     "DIALECT": "mysql"
   },
